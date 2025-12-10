@@ -1,22 +1,26 @@
 <?php
-  function suma($num1,$num2,$num3){
-    return $num1 + $num2 + $num3;
+function calculaSuma(array $puntuaciones): float
+{
+  $suma = 0;
+  foreach ($puntuaciones as $puntuacion) {
+    $suma += $puntuacion;
   }
-  function media($num1,$num2,$num3){
-    return suma($num1,$num2,$num3) / 3;
-  }
+  return $suma;
+}
+function calculaMedia(array $puntuaciones): float
+{
+  return calculaSuma($puntuaciones) / count($puntuaciones);
+}
 
-  function clasificacion($num){
-    $respuesta = "";
-    if ($num < 4000){
-      $respuesta = "Principant";
-    } else if ($num < 8000){
-      $respuesta = "Intermedi";
-    } else {
-      $respuesta = "Professional";
-    }
-    return $respuesta;
+function calculaClasificacion(float $puntuacion): String
+{
+  if ($puntuacion < 4000) {
+    return "Principant";
+  } else if ($puntuacion < 8000) {
+    return "Intermedi";
   }
-  echo "La suma es: " . suma(1000,2000,3000) . "\n";
-  echo "La mitjana es: " . media(5000,4000,6000) . "\n";
-  echo "La classificacio es: " . clasificacion(media(9000,9000,9000)) . "\n";
+  return "Professional";
+}
+echo "La suma es: " . calculaSuma([1000, 2000, 3000]) . "\n";
+echo "La mitjana es: " . calculaMedia([5000, 4000, 6000]) . "\n";
+echo "La classificacio es: " . calculaClasificacion(calculaMedia([9000, 9000, 9000])) . "\n";
