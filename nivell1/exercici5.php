@@ -1,15 +1,16 @@
 <?php
-  function verificarGrado($nota){
-    $resultado = "";
-    if($nota >= 6){
-      $resultado = "Primera Divisió";
-    } else if($nota >= 4.5 && $nota <= 5.9){
-      $resultado = "Segona Divisió";
-    } else if($nota >= 3.3 && $nota <= 4.4){
-      $resultado = "Tercera Divisió";
-    } else {
-      $resultado = "Reprovar";
-    }
-    return $resultado;
+function verificarGrado($nota)
+{
+  if ($nota >= 6) {
+    return "Primera Divisió";
+  } else if ($nota >= 4.5) {
+    return "Segona Divisió";
+  } else if ($nota >= 3.3) {
+    return "Tercera Divisió";
   }
-  echo verificarGrado(3.4) . "\n";
+  return "Reprovar";
+}
+echo verificarGrado(7) . "\n";
+echo verificarGrado(5) . "\n";
+echo verificarGrado(4) . "\n";
+echo verificarGrado(1) . "\n";
